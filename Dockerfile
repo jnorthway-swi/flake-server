@@ -32,7 +32,7 @@ RUN apt-get update && \
 COPY docker/10-flake-env.sh /docker-entrypoint.d/
 
 # Install python dependencies
-RUN if [ "${DEV_BUILD}" = "1" ]; then python3 -m pip install --upgrade pip; fi
+RUN python3 -m pip install --upgrade pip
 COPY tools/host/requirements.txt /tools/host/requirements.txt
 RUN python3 -m pip install --no-cache-dir -r /tools/host/requirements.txt
 
